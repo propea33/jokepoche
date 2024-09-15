@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#joke {
+  margin-top: 20px;
+}
+
+#shareButtons {
+  margin-top: 10px;
+}
