@@ -1,13 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Générateur de Blagues</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+    <title>Générateur de Jokes Poches</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="jokeButton">Génère une joke poche</button>
-    <div id="joke"></div>
-    <div id="shareButtons"></div>
+    <div class="container">
+        <button id="generateButton">Générez une joke poche</button>
+        <p id="jokeText"></p>
+        <div id="shareButtons" class="share-buttons">
+            <button onclick="shareJoke('Facebook')" class="share-button">Partager sur Facebook</button>
+            <button onclick="shareJoke('Email')" class="share-button">Partager par Email</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
