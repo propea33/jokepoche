@@ -1,26 +1,33 @@
-const jokes = [
-    "Pourquoi les plongeurs plongent-ils toujours en arrière ? Parce que sinon, ils tombent dans le bateau !",
-    "Que fait une fraise sur un cheval ? Tagada tagada !",
-    // ... (autres blagues)
-];
+fetch('jokes.json')
+  .then(response => response.json())
+  .then(data => {
+    const jokes = data;
 
-const generateButton = document.getElementById('generateButton');
-const jokeText = document.getElementById('jokeText');
-const shareButtons = document.getElementById('shareButtons');
+    // Sélection des éléments du DOM
+    const generateButton = document.getElementById('generateButton');
+    const jokeText = document.getElementById('jokeText');
+    const shareButtons = document.getElementById('shareButtons');
 
-let currentJoke = '';
+    // Variable pour stocker la blague actuelle
+    let currentJoke = '';
 
-generateButton.addEventListener('click', generateJoke);
+    // Écouteur d'événement sur le bouton pour générer une blague
+    generateButton.addEventListener('click', generateJoke);
 
-function generateJoke() {
-    currentJoke = jokes[Math.floor(Math.random() * jokes.length)];
-    jokeText.textContent = currentJoke;
-    generateButton.textContent = 'Une autre joke poche';
-    shareButtons.style.display = 'flex';
-}
+    function generateJoke() {
+        // Choisir une blague aléatoire parmi celles récupérées du fichier JSON
+        currentJoke = jokes[Math.floor(Math.random() * jokes.length)];
+        // Afficher la blague sur la page
+        jokeText.textContent = currentJoke;
+        // Changer le texte du bouton
+        generateButton.textContent = 'Une autre joke poche';
+        // Afficher les boutons de partage
+        shareButtons.style.display = 'flex';
+    }
 
-function shareJoke(platform) {
-    // Ici, vous implémenteriez la vraie logique de partage
-    console.log(`Partage sur ${platform}: ${currentJoke}`);
-    alert(`Partage sur ${platform} simulé : ${currentJoke}`);
-}
+    // Fonction pour partager la blague (à compléter avec la logique de partage réelle)
+    function shareJoke(platform) {
+        console.log(`Partage sur ${platform}: ${currentJoke}`);
+        alert(`Partage sur ${platform} simulé : ${currentJoke}`);
+    }
+});
